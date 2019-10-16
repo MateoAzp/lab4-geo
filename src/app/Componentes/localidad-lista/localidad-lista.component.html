@@ -1,0 +1,29 @@
+<div class="container">
+  <ul class="collection with-header">
+    
+    <li class="collection-header">
+      <h4>Listado de Localidades:</h4>
+      <a class="waves-effect waves-light btn"
+        (click)="irNuevoLocalidad()">
+        <i class="material-icons right">add</i>
+        Agregar nuevo
+      </a> 
+    </li>
+    
+    <li *ngFor="let localidad of listadoLocalidades" class="collection-item">
+
+        <div class="row ">
+          <div class="col s9">
+            <h6>{{localidad.id}} - {{localidad.nombre}} - depto: {{localidad.departamentoNombre}}</h6>
+          </div>
+        
+        <div class="col s3">
+        <a class="waves-effect waves-light btn" (click)="editarLocalidad(localidad.id)"><i class="material-icons">edit</i></a>
+        <a class="waves-effect waves-light btn red" (click)="borrarLocalidad(localidad.id)"><i class="material-icons">delete</i></a>
+        </div>
+      </div>      
+
+    </li>
+  </ul>
+  
+</div>

@@ -1,0 +1,33 @@
+{
+  "departamentos": [
+    {
+      "id": 2,
+      "nombre": "Paraná"
+    },
+    {
+      "id": 3,
+      "nombre": "Islas del Ibicuy"
+    },
+    {
+      "id": 5,
+      "nombre": "La Paz"
+    }
+  ],
+  "localidades": [
+    {
+      "id": 2,
+      "nombre": "Villaguay2",
+      "iddepartamento": 5
+    },
+    {
+      "id": 3,
+      "nombre": "Hernandarias",
+      "iddepartamento": 2
+    },
+    {
+      "id": 6,
+      "nombre": "San Salvador",
+      "idprovincia": null
+    }
+  ]
+}
