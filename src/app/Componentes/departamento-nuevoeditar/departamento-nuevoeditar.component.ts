@@ -9,14 +9,14 @@ import { Departamento } from 'src/app/Clases/departamento';
 })
 export class DepartamentoNuevoeditarComponent implements OnInit {
 
-  esNuevo: boolean = true
+  esNuevo: boolean = false
   departamento: Departamento
   @Output() actualizarListado = new EventEmitter()
 
   constructor(private _api: ApiService) { }
 
   ngOnInit() {
-    this.nuevoDepartamento()
+    //this.nuevoDepartamento()
   }
 
   nuevoDepartamento(){

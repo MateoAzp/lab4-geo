@@ -18,11 +18,13 @@ export class LocalidadListaComponent implements OnInit {
   constructor(private _api: ApiService) {
     this.traerLocalidades()
    }
+   
   traerLocalidades(){
       this._api.getLocalidades().subscribe(
       data => this.listadoLocalidades = data
     )
   }
+
 
   irNuevoLocalidad(){
     this.nuevoLocalidad.emit(true)

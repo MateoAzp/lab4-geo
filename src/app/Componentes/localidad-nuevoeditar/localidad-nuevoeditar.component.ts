@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/Api/api.service';
 import { Localidad } from 'src/app/Clases/localidad';
+import { Departamento } from 'src/app/Clases/departamento';
 
 @Component({
   selector: 'mp-localidad-nuevoeditar',
@@ -8,14 +9,17 @@ import { Localidad } from 'src/app/Clases/localidad';
   styleUrls: ['./localidad-nuevoeditar.component.css']
 })
 export class LocalidadNuevoeditarComponent implements OnInit {
-  esNuevo: boolean = true
+  mostrarVM: boolean = false;
+  esNuevo: boolean = false
   localidad: Localidad
   @Output() actualizarListado = new EventEmitter()
+  listadoDepartamentos : Departamento[] = []
 
   constructor(private _api: ApiService) { }
 
   ngOnInit() {
-    this.nuevoLocalidad()
+    this.traerDepartamentos()
+    //this.nuevoLocalidad()
   }
 
   nuevoLocalidad(){
@@ -24,15 +28,23 @@ export class LocalidadNuevoeditarComponent implements OnInit {
   }
 
   cancelar(){
-    this.localidad = null;    
+    this.localidad = null
   }  
-
+  traerDepartamentos(){
+    this._api.getDepartamentos().subscribe(
+    data => this.listadoDepartamentos = data
+  )
+  }
+  editarDepartamentoDeLocaliadad(){
+    this.localidad.departamento = null
+  }
   getLocalidadAEditar(idlocalidad:number) { 
     this._api.getLocalidad(idlocalidad)
       .subscribe(
         (localidad) => {
-          this.localidad = localidad;
-          this.esNuevo = false;
+          this.localidad = localidad
+          this.esNuevo = false
+          this.mostrarVM = true
         }
       )
   }
@@ -43,7 +55,7 @@ export class LocalidadNuevoeditarComponent implements OnInit {
         .subscribe(
           response => {
             this.actualizarListado.emit()
-             this.localidad = null;  }
+             this.localidad = null  }
         )
     }
     else{
@@ -51,7 +63,7 @@ export class LocalidadNuevoeditarComponent implements OnInit {
         .subscribe(
           response => {
               this.actualizarListado.emit() 
-              this.localidad = null;  }
+              this.localidad = null  }
         )
     }
   }

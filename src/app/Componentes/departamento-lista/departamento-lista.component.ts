@@ -20,7 +20,7 @@ export class DepartamentoListaComponent implements OnInit {
    }
   traerDepartamentos(){
       this._api.getDepartamentos().subscribe(
-      data => this.listadoDepartamentos = data
+      data => this.listadoDepartamentos = data 
     )
   }
 

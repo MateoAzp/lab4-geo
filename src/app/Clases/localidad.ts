@@ -1,11 +1,13 @@
+import { Departamento } from './departamento'
+
 export class Localidad {
   id:number
   nombre: string
-  idprovincia: number
+  departamento: Departamento
 
-  constructor(id:number,nombre:string,idprovincia:number){
+  constructor(id:number, nombre:string, departamento: Departamento){
     this.id = id
     this.nombre = nombre
-    this.idprovincia = idprovincia
+    this.departamento = departamento
   }
 }

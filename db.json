@@ -16,18 +16,27 @@
   "localidades": [
     {
       "id": 2,
-      "nombre": "Villaguay2",
-      "iddepartamento": 5
+      "nombre": "Villaguay2"
     },
     {
       "id": 3,
-      "nombre": "Hernandarias",
-      "iddepartamento": 2
+      "nombre": "Hernandarias"
     },
     {
       "id": 6,
       "nombre": "San Salvador",
-      "idprovincia": null
+      "departamento": {
+        "id": 5,
+        "nombre": "La Paz"
+      }
+    },
+    {
+      "id": 9,
+      "nombre": "Paraguay",
+      "departamento": {
+        "id": 3,
+        "nombre": "Islas del Ibicuy"
+      }
     }
   ]
 }
